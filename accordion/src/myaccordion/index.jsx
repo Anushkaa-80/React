@@ -1,4 +1,4 @@
-//single selection
+ //single selection
 
 import { useState } from "react";
 import data from "./data";
