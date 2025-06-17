@@ -1,33 +1,15 @@
-import React, { useState } from "react";
+import RandomColor1 from "./components/random-color1";
 
-function App() {
-  const [color, setColor] = useState("#ffffff");
-
-  function generateRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let randomColor = "#";
-    for (let i = 0; i < 6; i++)
-      randomColor += letters[Math.floor(Math.random() * 16)];
-
-    setColor(randomColor);
-  }
-
+function App()
+{
   return (
-    <div
-      style={{
-        backgroundColor: color,
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "#333",
-      }}
-    >
-      <h1> Random Color Generator</h1>
-      <p>Current color:{color}</p>
-      <button onClick={generateRandomColor}>Generate Random Color</button>
-    </div>
+
+  <div className="App">
+    {/* Random color generator */}
+   <RandomColor1/>
+
+  </div>  
+  
   );
 }
 
