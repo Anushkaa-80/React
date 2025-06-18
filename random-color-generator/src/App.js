@@ -1,4 +1,5 @@
 import RandomColor1 from "./components/random-color1";
+import StarRating from "./components/star-rating";
 
 function App()
 {
@@ -6,8 +7,8 @@ function App()
 
   <div className="App">
     {/* Random color generator */}
-   <RandomColor1/>
-
+   {/* <RandomColor1/> */}
+     <StarRating/>
   </div>  
   
   );
