@@ -40,7 +40,7 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
 
   return (
     <div className="container">
-      <BsArrowLeftCircleFill className="arrow arrow-left" />
+      <BsArrowLeftCircleFill onClick={handlePrevious} className="arrow arrow-left" />
       {images && images.length
         ? images.map((imageItem) => (
             <img
@@ -51,7 +51,7 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
             />
           ))
         : null}
-      <BsArrowRightCircleFill className="arrow arrow-right" />
+      <BsArrowRightCircleFill onClick={handleNext} className="arrow arrow-right" />
       <span className="circle-indicators">
         {images && images.length
           ? images.map((_, index) => (
