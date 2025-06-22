@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoTimeSharp } from "react-icons/io5";
+import './styles.css';
+
 
 export default function LoadMoreData() {
   const [loading, setLoading] = useState(false);
@@ -18,7 +20,7 @@ export default function LoadMoreData() {
       const result = await response.json();
 
       if (result && result.products && result.products.length) {
-        setProducts(result.products);
+        setProducts((prevData) => [...prevData, ...result.products]);
         setLoading(false);
       }
 
@@ -32,26 +34,26 @@ export default function LoadMoreData() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [count]);
 
   if (loading) {
     return <div>Loading data! Please wait.</div>;
   }
 
   return (
-    <div className="container">
+    <div className="load-more-container">
       <div className="product-container">
         {products && products.length
-          ? products.map((item) => <div className="product" key ={item.id}>
+          ? products.map((item) => (<div className="product" key ={item.id}>
              
-             <img src={IoTimeSharp.thumbnail} alt={item.title}  />
+             <img src={item.thumbnail} alt={item.title}  />
              <p>{item.title}</p>
              
-             </div>)
+             </div>))
           : null}
       </div>
       <div className="button-container">
-         <button>Load more products</button>
+         <button onClick={()=> setCount(count+1)}>Load more products</button>
 
       </div>
     </div>
