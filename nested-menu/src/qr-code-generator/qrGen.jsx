@@ -7,6 +7,7 @@ export default function QRGenerator()
  
 const [inputValue, setInputValue]=useState('');
 const [showQR, setShowQR] = useState(false);
+const [darkMode, setDarkMode] = useState(false);
 
 const handleGenerate = ()=> {
     if(inputValue.trim !== '')
@@ -19,10 +20,17 @@ const handleDelete=()=>
 {
     setShowQR(false);
     setInputValue('');
-}
+};
+
+const toggleTheme = () =>
+{
+    setDarkMode(!darkMode);
+};
+
     return(
     
-        <div>
+        <div className={darkMode ? 'container dark' : 'container light'}>
+            <button onClick={toggleTheme} className="theme-toggle"> {darkMode? 'Light' : 'Dark'} Mode</button>
             <input type="text" placeholder="Enter you text"
             value={inputValue}
             onChange={(e)=> setInputValue(e.target.value)} />
